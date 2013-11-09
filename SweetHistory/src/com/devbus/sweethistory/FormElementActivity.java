@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -16,7 +17,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.ShareActionProvider;
 import android.widget.TextView;
 
-public class FormElementActivity extends Activity {
+public class FormElementActivity extends BaseDrawerActivity {
 
 	private ShareActionProvider mShareActionProvider;
 	private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
@@ -29,7 +30,10 @@ public class FormElementActivity extends Activity {
 		String typeElement = this.getIntent().getStringExtra("TYPE_ELEMENT");
         Integer elementId= this.getIntent().getIntExtra("ELEMENT_ID",0);
 
-		setContentView(R.layout.form_element);
+        FrameLayout mainFrame = (FrameLayout) findViewById(R.id.main_frame);
+        View v = getLayoutInflater().inflate(R.layout.form_element, null);
+        mainFrame.addView(v);
+
 		ImageView imgFormElement = (ImageView) this
 				.findViewById(R.id.imgFormElement);
 		TextView txtFormElement = (TextView) this
