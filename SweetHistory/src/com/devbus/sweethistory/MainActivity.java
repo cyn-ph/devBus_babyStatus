@@ -39,7 +39,6 @@ public class MainActivity extends FragmentActivity implements
 
 	SampleAlarmReceiver alarm = new SampleAlarmReceiver();
 
-
 	public static String TAG = "SWEET_HISTORY";
 
 	@Override
@@ -93,18 +92,18 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		Intent intentAddElement = new Intent(this, FormElementActivity.class);
-		switch (item.getItemId()){
-			case R.id.addEvent:
-				intentAddElement.putExtra("TYPE_ELEMENT", "event");
-				break;
+		switch (item.getItemId()) {
+		case R.id.addEvent:
+			intentAddElement.putExtra("TYPE_ELEMENT", "event");
+			break;
 
-			case R.id.addSintom:
-				intentAddElement.putExtra("TYPE_ELEMENT", "sintom");
-				break;
+		case R.id.addSintom:
+			intentAddElement.putExtra("TYPE_ELEMENT", "sintom");
+			break;
 		}
-		
+
 		this.startActivity(intentAddElement);
-		
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -141,10 +140,24 @@ public class MainActivity extends FragmentActivity implements
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			Fragment fragment = new TipListFragment();
+			Fragment fragment = null;
 			Bundle args = new Bundle();
 			args.putInt("section_number", position + 1);
-			fragment.setArguments(args);
+
+			switch (position) {
+			case 0:
+				fragment = new EventListFragment();
+				fragment.setArguments(args);
+				break;
+			case 1:
+				fragment = new TipListFragment();
+				fragment.setArguments(args);
+				break;
+			case 2:
+				fragment = new SintomListFragment();
+				fragment.setArguments(args);
+				break;
+			}
 			return fragment;
 		}
 
