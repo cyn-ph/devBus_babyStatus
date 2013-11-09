@@ -113,7 +113,6 @@ public class BaseDrawerActivity extends FragmentActivity {
 			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 			startActivity(intent);
 		}
-		Toast.makeText(this, "Menu Item: " + position, Toast.LENGTH_SHORT).show();
 
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);

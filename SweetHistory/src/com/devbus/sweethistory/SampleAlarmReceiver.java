@@ -60,14 +60,13 @@ public class SampleAlarmReceiver extends android.support.v4.content.WakefulBroad
 	 *
 	 * @param context
 	 */
-	public void setAlarm(Context context) {
+	public void setAlarm(Context context, String alarmMessage,long triggerAtMillis, long intervalMillis) {
 
 		Intent intent = new Intent(context, SampleAlarmReceiver.class);
+        intent.putExtra(EXTRA_MESSAGE, alarmMessage);
+        intent.setAction(alarmMessage);
 		alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 		alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTimeInMillis(System.currentTimeMillis());
 
         /* 
          * If you don't have precise time requirements, use an inexact repeating alarm
@@ -102,7 +101,7 @@ public class SampleAlarmReceiver extends android.support.v4.content.WakefulBroad
 
 		// Set the alarm to fire at approximately 8:30 a.m., according to the device's
 		// clock, and to repeat once a day.
-		alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 5000, alarmIntent);
+		alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, triggerAtMillis, intervalMillis, alarmIntent);
 
 		// Enable {@code SampleBootReceiver} to automatically restart the alarm when the
 		// device is rebooted.
@@ -120,17 +119,15 @@ public class SampleAlarmReceiver extends android.support.v4.content.WakefulBroad
 	 * @param context
 	 */
 	// BEGIN_INCLUDE(cancel_alarm)
-	public void cancelAlarm(Context context) {
+	public void cancelAlarm(Context context, String alarmId) {
 		// If the alarm has been set, cancel it.
-		if (alarmMgr != null) {
-			alarmMgr.cancel(alarmIntent);
-		} else {
+
 			Intent intent = new Intent(context, SampleAlarmReceiver.class);
+        intent.setAction(alarmId);
 			alarmIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
 			alarmMgr = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 			alarmMgr.cancel(alarmIntent);
 
-		}
 
 		// Disable {@code SampleBootReceiver} so that it doesn't automatically restart the
 		// alarm when the device is rebooted.

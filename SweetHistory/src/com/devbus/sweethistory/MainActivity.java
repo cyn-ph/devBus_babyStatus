@@ -32,7 +32,7 @@ public class MainActivity extends BaseDrawerActivity implements ActionBar.TabLis
 	 */
 	ViewPager mViewPager;
 
-	SampleAlarmReceiver alarm = new SampleAlarmReceiver();
+
 
 	public static String TAG = "SWEET_HISTORY";
 
