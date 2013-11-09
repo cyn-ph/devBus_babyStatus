@@ -5,12 +5,14 @@ public class Tip {
 	private String title;
 	private String description;
 	private String advice;
+	private Integer idTip;
 
-	public Tip(String title, String description, String advice) {
+	public Tip(String title, String description, String advice, Integer idtip) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.advice = advice;
+		this.idTip = idtip;
 	}
 
 	public String getTitle() {
