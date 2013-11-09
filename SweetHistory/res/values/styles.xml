@@ -21,11 +21,19 @@
 	    <item name="android:actionBarStyle">@style/solid_ActionBar</item>
 	    <item name="android:selectableItemBackground">@null</item>
 	    <item name="android:windowBackground">@drawable/background</item>
+	    <item name="android:actionBarTabStyle">@style/MyActionBarTabs</item>
     </style>
 
 	<style name="solid_ActionBar" parent="android:Widget.ActionBar">
 		<item name="android:background">@drawable/action</item>
 		<item name="android:alpha">.80</item>
+	</style>
+
+	<!-- ActionBar tabs styles -->
+	<style name="MyActionBarTabs"
+	       parent="android:Widget.Holo.ActionBar.TabView">
+		<!-- tab indicator -->
+		<item name="android:background">@drawable/action_bar_tab</item>
 	</style>
 
 </resources>
