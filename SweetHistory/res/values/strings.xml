@@ -39,4 +39,19 @@
 		<item>@string/sectionAlarms</item>
 		<item>@string/sectionDoctorRegister</item>
     </string-array>
+    <string name="hintEach">Cada&#8230;</string>
+    <string name="txtDateInitial">A partir de&#8230;</string>
+    <string name="txtTimeInitial">A las&#8230;</string>
+    <string name="timePickerTile">Selecciona una hora</string>
+    <string name="errorEmptyFiels">Se deben llenar todos los campos</string>
+    <string name="alarmDeleted">Alarma eliminada correctamente</string>
+
+
+    <string-array name="units">
+        <item>segundo (s)</item>
+        <item>minuto (s)</item>
+        <item>hora (s)</item>
+        <item>día (s)</item>
+        <item>semana (s)</item>
+    </string-array>
 </resources>
