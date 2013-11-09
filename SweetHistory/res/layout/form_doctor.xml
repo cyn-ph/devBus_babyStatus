@@ -9,7 +9,7 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/circulo" />
+        android:src="@drawable/bebe_datos_l" />
 
     <EditText
         android:id="@+id/doctorName"
