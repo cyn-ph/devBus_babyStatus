@@ -1,26 +1,21 @@
 package com.devbus.sweethistory;
 
-import java.util.Calendar;
-import java.util.Locale;
-
 import android.app.ActionBar;
-import android.app.AlarmManager;
 import android.app.FragmentTransaction;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.FrameLayout;
 
-public class MainActivity extends FragmentActivity implements
-		ActionBar.TabListener {
+import java.util.Locale;
+
+public class MainActivity extends BaseDrawerActivity implements ActionBar.TabListener {
 
 	/**
 	 * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -45,7 +40,10 @@ public class MainActivity extends FragmentActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+
+		FrameLayout mainFrame = (FrameLayout) findViewById(R.id.main_frame);
+		View v = getLayoutInflater().inflate(R.layout.activity_main, null);
+		mainFrame.addView(v);
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -53,8 +51,7 @@ public class MainActivity extends FragmentActivity implements
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
-		mSectionsPagerAdapter = new SectionsPagerAdapter(
-				getSupportFragmentManager());
+		mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
 		// Set up the ViewPager with the sections adapter.
 		mViewPager = (ViewPager) findViewById(R.id.pager);
@@ -63,13 +60,12 @@ public class MainActivity extends FragmentActivity implements
 		// When swiping between different sections, select the corresponding
 		// tab. We can also use ActionBar.Tab#select() to do this if we have
 		// a reference to the Tab.
-		mViewPager
-				.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
-					@Override
-					public void onPageSelected(int position) {
-						actionBar.setSelectedNavigationItem(position);
-					}
-				});
+		mViewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+			@Override
+			public void onPageSelected(int position) {
+				actionBar.setSelectedNavigationItem(position);
+			}
+		});
 
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -77,9 +73,7 @@ public class MainActivity extends FragmentActivity implements
 			// the adapter. Also specify this Activity object, which implements
 			// the TabListener interface, as the callback (listener) for when
 			// this tab is selected.
-			actionBar.addTab(actionBar.newTab()
-					.setText(mSectionsPagerAdapter.getPageTitle(i))
-					.setTabListener(this));
+			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
 		}
 	}
 
@@ -92,38 +86,37 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent intentAddElement = new Intent(this, FormElementActivity.class);
-		switch (item.getItemId()){
+		Intent intentAddElement = null;
+		switch (item.getItemId()) {
 			case R.id.addEvent:
+				intentAddElement = new Intent(this, FormElementActivity.class);
 				intentAddElement.putExtra("TYPE_ELEMENT", "event");
 				break;
 
 			case R.id.addSintom:
+				intentAddElement = new Intent(this, FormElementActivity.class);
 				intentAddElement.putExtra("TYPE_ELEMENT", "sintom");
 				break;
+			default: return super.onOptionsItemSelected(item);
 		}
-		
+
 		this.startActivity(intentAddElement);
-		
-		return super.onOptionsItemSelected(item);
+		return true;
 	}
 
 	@Override
-	public void onTabSelected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 		// When the given tab is selected, switch to the corresponding page in
 		// the ViewPager.
 		mViewPager.setCurrentItem(tab.getPosition());
 	}
 
 	@Override
-	public void onTabUnselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	@Override
-	public void onTabReselected(ActionBar.Tab tab,
-			FragmentTransaction fragmentTransaction) {
+	public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 	}
 
 	/**
@@ -158,12 +151,12 @@ public class MainActivity extends FragmentActivity implements
 		public CharSequence getPageTitle(int position) {
 			Locale l = Locale.getDefault();
 			switch (position) {
-			case 0:
-				return getString(R.string.titleSectionEvents).toUpperCase(l);
-			case 1:
-				return getString(R.string.titleSectionAdvices).toUpperCase(l);
-			case 2:
-				return getString(R.string.titleSectionSintoms).toUpperCase(l);
+				case 0:
+					return getString(R.string.titleSectionEvents).toUpperCase(l);
+				case 1:
+					return getString(R.string.titleSectionAdvices).toUpperCase(l);
+				case 2:
+					return getString(R.string.titleSectionSintoms).toUpperCase(l);
 			}
 			return null;
 		}

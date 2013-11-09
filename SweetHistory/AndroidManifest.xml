@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.devbus.sweethistory.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/sectionTimeLine" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -31,6 +31,21 @@
             android:name="com.devbus.sweethistory.FormElementActivity"
             android:label="@string/app_name" >           
         </activity>
+
+		<activity
+			android:name="com.devbus.sweethistory.FormBabyActivity"
+			android:label="@string/sectionBabyRegister" >
+		</activity>
+
+		<activity
+			android:name="com.devbus.sweethistory.FormDoctorActivity"
+			android:label="@string/sectionDoctorRegister" >
+		</activity>
+
+		<activity
+			android:name="com.devbus.sweethistory.AlarmActivity"
+			android:label="@string/sectionAlarms" >
+		</activity>
 
 
 		<receiver android:name=".SampleAlarmReceiver"/>
