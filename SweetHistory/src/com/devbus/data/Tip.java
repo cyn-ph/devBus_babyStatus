@@ -39,4 +39,14 @@ public class Tip {
 		this.advice = advice;
 	}
 
+	public Integer getIdTip() {
+		return idTip;
+	}
+
+	public void setIdTip(Integer idTip) {
+		this.idTip = idTip;
+	}
+	
+	
+
 }
