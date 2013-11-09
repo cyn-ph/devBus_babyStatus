@@ -1,110 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:gravity="center">
+    android:layout_height="match_parent" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/circulo" />
-
-    <EditText
-        android:id="@+id/babyName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/name" >
+        android:layout_marginTop="@dimen/topMarginFormBaby"
+        android:gravity="center"
+        android:orientation="vertical" >
 
-        <requestFocus />
-    </EditText>
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="145dp"
+            android:layout_height="145dp"
+            android:src="@drawable/bebe_datos_l" />
 
-    <EditText
-        android:id="@+id/babyLastname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/lastname" >
+        <EditText
+            android:id="@+id/babyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="30"
+            android:hint="@string/name" >
 
-        <requestFocus />
-    </EditText>
+            <requestFocus />
+        </EditText>
 
-    <EditText
-        android:id="@+id/babyBirthDay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/birthday" >
+        <EditText
+            android:id="@+id/babyLastname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="30"
+            android:hint="@string/lastname" >
+        </EditText>
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/babyBirthDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/birthday" 
+            android:inputType="date">
+        </EditText>
 
-    <EditText
-        android:id="@+id/babyWeigth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/weigth" >
+        <EditText
+            android:id="@+id/babyWeigth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/weigth" 
+            android:inputType="numberDecimal">
+        </EditText>
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/babyGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/genre" >
+        </EditText>
 
-    <EditText
-        android:id="@+id/babyGenre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/genre" >
+        <EditText
+            android:id="@+id/babyHeigth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/heigth" 
+            android:inputType="numberDecimal">
+        </EditText>
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/babyAPGAR"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/apgar"
+            android:inputType="numberDecimal" >
+           
+        </EditText>
 
-    <EditText
-        android:id="@+id/babyHeigth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/heigth" >
+        <EditText
+            android:id="@+id/babyLastVisit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/lastVisit"
+            android:inputType="datetime" >
+        </EditText>
 
-        <requestFocus />
-    </EditText>
+        <EditText
+            android:id="@+id/babyCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/leftMarginFormBaby"
+            android:layout_marginRight="@dimen/rigthMarginFormBaby"
+            android:layout_marginTop="@dimen/topMarginForm"
+            android:ems="10"
+            android:hint="@string/city" >
+        </EditText>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/babyAPGAR"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/apgar" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/babyLastVisit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/lastVisit" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/babyCity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/city" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save" />
-
-</LinearLayout>
+</ScrollView>

@@ -129,9 +129,9 @@ public class MainActivity extends FragmentActivity implements
 			Locale l = Locale.getDefault();
 			switch (position) {
 			case 0:
-				return getString(R.string.titleSectionAdvices).toUpperCase(l);
+				return getString(R.string.titleSectionEvents).toUpperCase(l);
 			case 1:
-				return getString(R.string.titleSectionAll).toUpperCase(l);
+				return getString(R.string.titleSectionAdvices).toUpperCase(l);
 			case 2:
 				return getString(R.string.titleSectionSintoms).toUpperCase(l);
 			}

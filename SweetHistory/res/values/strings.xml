@@ -3,8 +3,9 @@
 
     <string name="app_name">SweetHistory</string>
     <string name="action_addSintom">Agregar síntoma</string>
+    <string name="action_addEvent">Agregar evento</string>
     <string name="titleSectionAdvices">CONSEJOS</string>
-    <string name="titleSectionAll">TODO</string>
+    <string name="titleSectionEvents">EVENTOS</string>
     <string name="titleSectionSintoms">SINTOMAS</string>
     <string name="name">nombre(s)</string>
     <string name="lastname">apellidos</string>
@@ -20,6 +21,7 @@
     <string name="officeNumber">núm. consultorio</string>
     <string name="email">correo electrónico</string>
     <string name="address">dirección</string>
+    <string name="question">¿qué esta pasando?</string>
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
