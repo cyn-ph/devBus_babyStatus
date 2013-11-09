@@ -1,9 +1,14 @@
 package com.devbus.sweethistory;
 
+import java.util.Calendar;
 import java.util.Locale;
 
 import android.app.ActionBar;
+import android.app.AlarmManager;
 import android.app.FragmentTransaction;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,6 +16,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -29,6 +36,11 @@ public class MainActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
+
+	SampleAlarmReceiver alarm = new SampleAlarmReceiver();
+
+
+	public static String TAG = "SWEET_HISTORY";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +88,21 @@ public class MainActivity extends FragmentActivity implements
 		// Inflate the menu; this adds items to the action bar if it is present.
 		this.getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()){
+			case R.id.addAlarm:
+				alarm.setAlarm(this);
+				break;
+
+			case R.id.cancelAlarm:
+				alarm.cancelAlarm(this);
+				break;
+		}
+
+		return super.onOptionsItemSelected(item);
 	}
 
 	@Override

@@ -20,7 +20,10 @@
     <string name="officeNumber">núm. consultorio</string>
     <string name="email">correo electrónico</string>
     <string name="address">dirección</string>
-    <string-array name="planets_array">
+	<string name="addAlarm">Alarmas</string>
+	<string name="cancelAlarm">Cancelar</string>
+	<string name="notificationTitle">Recuerda... </string>
+	<string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
         <item>Earth</item>

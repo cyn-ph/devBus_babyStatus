@@ -28,3 +28,4 @@ proguard/
 *.iws
 .idea/
 org.eclipse.jdt.core.prefs
+SweetHistory/.gradle
