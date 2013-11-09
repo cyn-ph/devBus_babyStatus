@@ -18,11 +18,13 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
 	    <!-- Support library compatibility -->
-
+	    <item name="android:actionBarStyle">@style/solid_ActionBar</item>
 	    <item name="android:selectableItemBackground">@null</item>
+	    <item name="android:windowBackground">@drawable/background</item>
     </style>
 
 	<style name="solid_ActionBar" parent="android:Widget.ActionBar">
+		<item name="android:background">@drawable/action</item>
 		<item name="android:alpha">.80</item>
 	</style>
 
