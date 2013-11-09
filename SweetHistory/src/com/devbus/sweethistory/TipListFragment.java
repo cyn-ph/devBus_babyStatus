@@ -99,7 +99,7 @@ public class TipListFragment extends ListFragment {
 			elementTitle.setText(this.getItem(position).getTitle());
 			LinearLayout circleElement = (LinearLayout) rowElement
 					.findViewById(R.id.backTimeLineCircle);
-			circleElement.setBackgroundResource(R.drawable.circle_tip);
+			circleElement.setBackgroundResource(R.drawable.circle_tip_state);
 			ImageView iconTimeLineCircle = (ImageView) rowElement
 					.findViewById(R.id.iconTimeLineCircle);
 
