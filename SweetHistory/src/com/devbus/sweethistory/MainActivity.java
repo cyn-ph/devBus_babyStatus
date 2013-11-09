@@ -92,16 +92,19 @@ public class MainActivity extends FragmentActivity implements
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intentAddElement = new Intent(this, FormElementActivity.class);
 		switch (item.getItemId()){
-			case R.id.addAlarm:
-				alarm.setAlarm(this);
+			case R.id.addEvent:
+				intentAddElement.putExtra("TYPE_ELEMENT", "event");
 				break;
 
-			case R.id.cancelAlarm:
-				alarm.cancelAlarm(this);
+			case R.id.addSintom:
+				intentAddElement.putExtra("TYPE_ELEMENT", "sintom");
 				break;
 		}
-
+		
+		this.startActivity(intentAddElement);
+		
 		return super.onOptionsItemSelected(item);
 	}
 

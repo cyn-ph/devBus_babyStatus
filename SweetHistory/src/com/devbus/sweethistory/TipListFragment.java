@@ -1,33 +1,70 @@
 package com.devbus.sweethistory;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.devbus.controller.Tips;
 import com.devbus.data.Tip;
 
 public class TipListFragment extends ListFragment {
 	
+	SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		this.setListAdapter(this.generateAdapter());		
+		this.setListAdapter(this.generateAdapter());	
 	}
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View timeLineView = inflater.inflate(R.layout.time_line, null);
-		TextView txtCalendar = (TextView)timeLineView.findViewById(R.id.txtCalendar);
-		txtCalendar.setText(new Date().toString());
+		final TextView txtCalendar = (TextView)timeLineView.findViewById(R.id.txtCalendar);
+		txtCalendar.setText(formatter.format(new Date()));
+		txtCalendar.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				showDateDialog(txtCalendar);
+			}
+		});
+		
+		
+		
 		return timeLineView;
+	}
+	
+	private void showDateDialog(final TextView txtView)
+	{
+		// create a new dialog fragment
+				DialogFragment newFragment;
+				try {
+					// Gets a new instance of the DatePickerFragment using the
+					// actual not after date and create a new DataSetListener
+					newFragment = DatePickerFragment
+						.newInstance(formatter.parse(txtView.getText().toString()),
+							new DatePickerFragment.OnDateSetListener() {
+								@Override
+								public void onDateSet(Date date) {
+									txtView.setText(formatter.format(date));
+								}
+							}, true);
+					newFragment.show(getFragmentManager(), "datePicker");
+				} catch (ParseException e) {
+					e.printStackTrace();
+				}
 	}
 	
 	private ArrayAdapter<Tip> generateAdapter() {		
@@ -38,26 +75,6 @@ public class TipListFragment extends ListFragment {
 		ArrayAdapter<Tip> adapter = new TipArrayAdapter(this.getActivity(), R.layout.row_tip, tips.getTips()); 
 				
 		return adapter;		
-	}
-	
-	public void showDatePickerFragment(){
-		/*/ create a new dialog fragment
-		//DialogFragment newFragment;
-		/try {
-			// Gets a new instance of the DatePickerFragment using the
-			// actual not after date and create a new DataSetListener
-			newFragment = DatePickerFragment
-				.newInstance(txtBirthdate.getText().toString()),
-					new DatePickerFragment.OnDateSetListener() {
-						@Override
-						public void onDateSet(Date date) {
-							txtBirthdate.setText(DatabaseDictionary.FORMATTER_VIEW.format(date));
-						}
-					}, true);
-			newFragment.show(getSupportFragmentManager(), "datePicker");
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}*/		
 	}
 	
 	//Create a custimized adapter
@@ -71,12 +88,14 @@ public class TipListFragment extends ListFragment {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	    	View rowTip = inflater.inflate(R.layout.row_tip, null);
+	    	View rowElement = inflater.inflate(R.layout.row_tip, null);
 	    	
-	    	TextView petName = (TextView)rowTip.findViewById(R.id.tipTitle);
-	    	petName.setText(this.getItem(position).getTitle());	    	
+	    	TextView elementTitle = (TextView)rowElement.findViewById(R.id.tipTitle);
+	    	elementTitle.setText(this.getItem(position).getTitle());
+	    	ImageView circleElement = (ImageView)rowElement.findViewById(R.id.timelineCircle);
+	    	circleElement.setBackgroundResource(R.drawable.circle_tip);
 	    	
-	    	return rowTip;
+	    	return rowElement;
 		}
 		
 	}
