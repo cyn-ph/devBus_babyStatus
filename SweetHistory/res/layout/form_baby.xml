@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circulo" />
+
+    <EditText
+        android:id="@+id/babyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/name" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyLastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/lastname" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyBirthDay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/birthday" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyWeigth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/weigth" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyGenre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/genre" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyHeigth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/heigth" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyAPGAR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/apgar" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyLastVisit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/lastVisit" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/babyCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/city" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+
+</LinearLayout>
