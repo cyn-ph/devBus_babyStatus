@@ -34,7 +34,6 @@ public class MainActivity extends BaseDrawerActivity implements ActionBar.TabLis
 
 	SampleAlarmReceiver alarm = new SampleAlarmReceiver();
 
-
 	public static String TAG = "SWEET_HISTORY";
 
 	@Override
@@ -134,10 +133,24 @@ public class MainActivity extends BaseDrawerActivity implements ActionBar.TabLis
 			// getItem is called to instantiate the fragment for the given page.
 			// Return a DummySectionFragment (defined as a static inner class
 			// below) with the page number as its lone argument.
-			Fragment fragment = new TipListFragment();
+			Fragment fragment = null;
 			Bundle args = new Bundle();
 			args.putInt("section_number", position + 1);
-			fragment.setArguments(args);
+
+			switch (position) {
+			case 0:
+				fragment = new EventListFragment();
+				fragment.setArguments(args);
+				break;
+			case 1:
+				fragment = new TipListFragment();
+				fragment.setArguments(args);
+				break;
+			case 2:
+				fragment = new SintomListFragment();
+				fragment.setArguments(args);
+				break;
+			}
 			return fragment;
 		}
 
