@@ -12,4 +12,16 @@
         android:showAsAction="always"
         android:title="@string/action_addSintom"/>
 
+	<item
+		android:id="@+id/addAlarm"
+		android:orderInCategory="100"
+		android:showAsAction="never"
+		android:title="@string/addAlarm"/>
+
+	<item
+		android:id="@+id/cancelAlarm"
+		android:orderInCategory="100"
+		android:showAsAction="never"
+		android:title="@string/cancelAlarm"/>
+
 </menu>

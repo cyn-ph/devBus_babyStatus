@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">SweetHistory</string>
     <string name="action_addSintom">Agregar síntoma</string>
     <string name="action_addEvent">Agregar evento</string>
@@ -22,7 +21,10 @@
     <string name="email">correo electrónico</string>
     <string name="address">dirección</string>
     <string name="question">¿qué esta pasando?</string>
-    <string-array name="planets_array">
+    <string name="addAlarm">Alarmas</string>
+	<string name="cancelAlarm">Cancelar</string>
+	<string name="notificationTitle">Recuerda... </string>
+	<string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
         <item>Earth</item>
