@@ -1,10 +1,12 @@
 package com.devbus.sweethistory;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.media.AudioManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -53,13 +55,14 @@ public class SampleSchedulingService extends IntentService {
 		Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		v.vibrate(1000);
 
-		Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-		Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-		r.play();
+		Uri notificationRingtone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 
 		mBuilder.setContentIntent(contentIntent);
+		Notification notification =  mBuilder.build();
+		notification.sound = notificationRingtone;
+		notification.audioStreamType = AudioManager.STREAM_ALARM;
 
 
-		mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+		mNotificationManager.notify(NOTIFICATION_ID, notification);
 	}
 }

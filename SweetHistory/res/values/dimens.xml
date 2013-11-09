@@ -7,7 +7,7 @@
     <dimen name="topMarginFormBaby">8dp</dimen>
     <dimen name="rigthMarginFormBaby">25dp</dimen>
     <dimen name="leftMarginFormBaby">25dp</dimen>
-    
+	<dimen name="smallPadding">5dp</dimen>
 
 
 </resources>

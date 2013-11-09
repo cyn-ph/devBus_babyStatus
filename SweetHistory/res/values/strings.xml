@@ -25,6 +25,7 @@
 	<string name="cancelAlarm">Cancelar</string>
 	<string name="notificationTitle">Recuerda... </string>
 	<string name="datePickerTitle">Selecciona una fecha</string>
+	<string name="txtAlarm">Te recuerdo que...</string>
 	<string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>

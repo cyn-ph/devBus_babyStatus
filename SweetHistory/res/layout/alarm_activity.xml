@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+	android:layout_marginTop="@dimen/activity_vertical_margin"
+	android:layout_marginLeft="@dimen/activity_horizontal_margin"
+	android:layout_marginRight="@dimen/activity_horizontal_margin">
+
+	<RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent">
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:hint="@string/txtAlarm"
+			android:id="@+id/txtAlarm"
+			android:layout_toLeftOf="@+id/imgAddAlarm"/>
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:layout_below="@id/txtAlarm"
+			android:drawableLeft="@drawable/calendario_state"
+			android:gravity="center_vertical"
+			android:layout_toLeftOf="@+id/imgAddAlarm"
+			android:layout_marginTop="@dimen/smallPadding"/>
+
+		<ImageView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:layout_centerVertical="true"
+			android:layout_alignParentRight="true"
+			android:id="@+id/imgAddAlarm"
+			android:src="@drawable/alarm_state"
+			android:layout_marginLeft="@dimen/smallPadding"/>
+	</RelativeLayout>
+
+	<ListView
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:id="@android:id/list"/>
+
+</LinearLayout>
