@@ -16,9 +16,12 @@ public class Tips {
 	public void fillList() {
 		this.tips = new ArrayList<Tip>();
 		int i = 0;
-		for (i = 0; i < 10; i++) {
-			this.tips.add(new Tip("Tip " + i, "Description", "Advice"));
-		}
+		this.tips.add(new Tip("Tip ", "Description", "Advice",1));
+		this.tips.add(new Tip("Tip ", "Description", "Advice",2));
+		this.tips.add(new Tip("Tip ", "Description", "Advice",3));
+		this.tips.add(new Tip("Tip ", "Description", "Advice",4));
+		this.tips.add(new Tip("Tip ", "Description", "Advice",5));
+		
 	}
 
 	public List<Tip> getTips() {
