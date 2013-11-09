@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.devbus.controller.Tips;
 import com.devbus.data.Tip;
@@ -67,8 +68,8 @@ public class TipListFragment extends ListFragment {
 					e.printStackTrace();
 				}
 	}
-	
-	private ArrayAdapter<Tip> generateAdapter() {		
+
+    private ArrayAdapter<Tip> generateAdapter() {
 		Tips tips = new Tips();
 		tips.fillList();
 		
@@ -94,7 +95,7 @@ public class TipListFragment extends ListFragment {
 	    	TextView elementTitle = (TextView)rowElement.findViewById(R.id.tipTitle);
 	    	elementTitle.setText(this.getItem(position).getTitle());
 	    	LinearLayout circleElement = (LinearLayout)rowElement.findViewById(R.id.backTimeLineCircle);
-	    	circleElement.setBackgroundResource(R.drawable.circle_tip);
+	    	circleElement.setBackgroundResource(R.drawable.circle_tip_state);
 	    	
 	    	
 	    	return rowElement;

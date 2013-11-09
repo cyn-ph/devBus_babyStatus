@@ -27,6 +27,7 @@ public class FormElementActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		String typeElement = this.getIntent().getStringExtra("TYPE_ELEMENT");
+        Integer elementId= this.getIntent().getIntExtra("ELEMENT_ID",0);
 
 		setContentView(R.layout.form_element);
 		ImageView imgFormElement = (ImageView) this
@@ -76,8 +77,8 @@ public class FormElementActivity extends Activity {
 	    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
 	        if (resultCode == RESULT_OK) {
 	            // Image captured and saved to fileUri specified in the Intent
-	            //Toast.makeText(this, "Imagen guardada en tus imágenes." + data.getData(), Toast.LENGTH_LONG).show();
-	        	Toast.makeText(this, "Imagen guardada en tus imágenes.", Toast.LENGTH_LONG).show();
+	            //Toast.makeText(this, "Imagen guardada en tus imï¿½genes." + data.getData(), Toast.LENGTH_LONG).show();
+	        	Toast.makeText(this, "Imagen guardada en tus imï¿½genes.", Toast.LENGTH_LONG).show();
 	        } else if (resultCode == RESULT_CANCELED) {
 	            // User cancelled the image capture
 	        } else {
@@ -112,7 +113,7 @@ public class FormElementActivity extends Activity {
 		Intent sendIntent = new Intent();
 		sendIntent.setAction(Intent.ACTION_SEND);
 		sendIntent.putExtra(Intent.EXTRA_TEXT, "This is my text to send.");
-		sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Síntoma del día.");
+		sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Sï¿½ntoma del dï¿½a.");
 		sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] { "doctor@gmail.com" });
 		sendIntent.setType("text/plain");
 		startActivity(sendIntent);

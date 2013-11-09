@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.ListFragment;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.devbus.controller.Events;
@@ -50,6 +52,16 @@ public class EventListFragment extends ListFragment {
 
 		return timeLineView;
 	}
+
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Intent intent = new Intent(getActivity(), FormElementActivity.class);
+        intent.putExtra("TYPE_ELEMENT","event");
+        intent.putExtra("ELEMENT_ID",id);
+        startActivity(intent);
+
+    }
 
 	private void showDateDialog(final TextView txtView) {
 		// create a new dialog fragment
@@ -104,7 +116,7 @@ public class EventListFragment extends ListFragment {
 			elementTitle.setText(this.getItem(position).getDate());
 			LinearLayout circleElement = (LinearLayout) rowElement
 					.findViewById(R.id.backTimeLineCircle);
-			circleElement.setBackgroundResource(R.drawable.circle_evento);
+			circleElement.setBackgroundResource(R.drawable.circle_evento_state);
 			ImageView iconTimeLineCircle = (ImageView) rowElement
 					.findViewById(R.id.iconTimeLineCircle);
 			iconTimeLineCircle.setImageResource(R.drawable.evento);
