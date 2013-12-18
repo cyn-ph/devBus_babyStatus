@@ -15,10 +15,13 @@ public class Tips {
 
 	public void fillList() {
 		this.tips = new ArrayList<Tip>();
-		int i = 0;
-		for (i = 0; i < 10; i++) {
-			this.tips.add(new Tip("Tip " + i, "Description", "Advice"));
-		}
+		int i = 0;		
+		this.tips.add(new Tip("Mamila", "Description", "Advice",5));
+		this.tips.add(new Tip("Ombligo", "Description", "Advice",4));
+		this.tips.add(new Tip("Pañal", "Description", "Advice",3));
+		this.tips.add(new Tip("Erupto", "Description", "Advice",2));
+		this.tips.add(new Tip("Amamantar", "Hasta 6 meses", "Advice",1));
+		this.tips.add(new Tip("Nacimiento", "Nació el bebe!", "Advice",0));		
 	}
 
 	public List<Tip> getTips() {

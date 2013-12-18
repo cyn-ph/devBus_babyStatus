@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.ListFragment;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.devbus.controller.Symptoms;
 import com.devbus.data.Symptom;
@@ -46,7 +48,17 @@ public class SintomListFragment extends ListFragment {
 		return timeLineView;
 	}
 
-	private void showDateDialog(final TextView txtView) {
+        @Override
+        public void onListItemClick(ListView l, View v, int position, long id) {
+            Intent intent = new Intent(getActivity(), FormElementActivity.class);
+            intent.putExtra("TYPE_ELEMENT","sintom");
+            intent.putExtra("ELEMENT_ID",id);
+            startActivity(intent);
+
+        }
+
+
+    private void showDateDialog(final TextView txtView) {
 		// create a new dialog fragment
 		DialogFragment newFragment;
 		try {
@@ -97,7 +109,7 @@ public class SintomListFragment extends ListFragment {
 			TextView elementTitle = (TextView)rowElement.findViewById(R.id.tipTitle);
 	    	elementTitle.setText(this.getItem(position).getDate());
 	    	LinearLayout circleElement = (LinearLayout)rowElement.findViewById(R.id.backTimeLineCircle);
-	    	circleElement.setBackgroundResource(R.drawable.circle_sintoma);
+	    	circleElement.setBackgroundResource(R.drawable.circle_sintoma_state);
 	    	ImageView iconTimeLineCircle = (ImageView)rowElement.findViewById(R.id.iconTimeLineCircle);
 	    	iconTimeLineCircle.setImageResource(R.drawable.sintoma);
 

@@ -26,7 +26,42 @@
 			android:drawableLeft="@drawable/calendario_state"
 			android:gravity="center_vertical"
 			android:layout_toLeftOf="@+id/imgAddAlarm"
-			android:layout_marginTop="@dimen/smallPadding"/>
+            android:text="@string/txtDateInitial"
+			android:layout_marginTop="@dimen/smallPadding"
+            android:id="@+id/txtDate"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_below="@id/txtDate"
+            android:id="@+id/txtTime"
+            android:drawableLeft="@drawable/device_access_alarms"
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@+id/imgAddAlarm"
+            android:text="@string/txtTimeInitial"
+            android:layout_marginTop="@dimen/smallPadding"/>
+
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_below="@id/txtTime"
+            android:id="@+id/txtTimeEach"
+            android:ems="5"
+            android:hint="@string/hintEach"
+            android:inputType="number"
+            android:gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="@dimen/smallPadding"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/imgAddAlarm"
+            android:layout_alignTop="@id/txtTimeEach"
+            android:layout_marginLeft="@dimen/smallPadding"
+            android:layout_alignBottom="@id/txtTimeEach"
+            android:layout_toRightOf="@id/txtTimeEach"
+            android:id="@+id/spinnerUnit"/>
 
 		<ImageView
 			android:layout_height="wrap_content"
@@ -37,6 +72,12 @@
 			android:src="@drawable/alarm_state"
 			android:layout_marginLeft="@dimen/smallPadding"/>
 	</RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/menuBackground"
+        android:layout_margin="@dimen/smallPadding"/>
 
 	<ListView
 		android:layout_height="match_parent"

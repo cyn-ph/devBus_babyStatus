@@ -3,6 +3,6 @@
     
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
-	<color name="menuBackground">#F7F7F7</color>
-    
+	<color name="menuBackground">#d4daf9</color>
+    <color name="tabSelected">#a86ee5</color>
 </resources>
